@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslim Educational City</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2937;
+      background: #f7f9fc;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0f3d63;
+      color: white;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand {
+      font-size: 23px;
+      font-weight: 700;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 12px;
+      font-weight: normal;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f3d63, #176a87);
+      color: white;
+      padding: 75px 20px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 19px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: #e7b84b;
+      color: #17202a;
+    }
+
+    .btn-light {
+      background: white;
+      color: #0f3d63;
+    }
+
+    section {
+      padding: 55px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: #176a87;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #16324a;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: #16324a;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e1e6eb;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .number {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #e8f2f7;
+      color: #0f3d63;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .plan-box {
+      background: white;
+      border: 1px dashed #9aa9b5;
+      min-height: 240px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    .payment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      background: white;
+    }
+
+    .payment-table td {
+      border: 1px solid #e1e6eb;
+      padding: 14px;
+    }
+
+    .payment-table td:first-child {
+      font-weight: 700;
+      width: 45%;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      background: #e7edf2;
+      min-height: 150px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #607080;
+    }
+
+    .form-box {
+      background: white;
+      border: 1px solid #e1e6eb;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 7px 0;
+      border: 1px solid #bcc7d0;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .notice {
+      margin-top: 12px;
+      padding: 12px;
+      background: #eef6fa;
+      border-radius: 8px;
+      display: none;
+    }
+
+    footer {
+      background: #102b40;
+      color: white;
+      padding: 35px 20px;
+    }
+
+    footer .container {
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .topbar {
+        display: block;
+      }
+
+      nav {
+        margin-top: 14px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand">
+      Muslim Educational City
+      <small>Aza Khel Bala, Nowshera, Khyber Pakhtunkhwa</small>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#masterplan">Master Plan</a>
+      <a href="#plots">Plots & Blocks</a>
+      <a href="#payments">Payment Plans</a>
+      <a href="#development">Development</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#verification">Verification</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <p>AZA KHEL BALA • NOWSHERA • KHYBER PAKHTUNKHWA</p>
+
+    <h1>Muslim Educational City</h1>
+
+    <p>
+      A community concept designed around thoughtful planning,
+      future growth and a clear digital experience for members
+      and visitors.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="#masterplan">Explore Master Plan</a>
+      <a class="btn btn-light" href="#plots">View Plots</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">Welcome</div>
+
+    <h2>Building a clear digital home for the community</h2>
+
+    <p>
+      Muslim Educational City is presented here with a modern,
+      easy-to-use website structure. This first version focuses
+      on clarity, accessibility and future expansion.
+    </p>
+
+    <p>
+      As official information becomes available, this website can
+      be updated with verified project details, master plan documents,
+      plot inventory, payment plans, development progress and member services.
+    </p>
+
+    <h3>Website roadmap</h3>
+
+    <ul style="padding-left:22px;">
+      <li>Official project profile and documentation</li>
+      <li>Master plan and block information</li>
+      <li>Residential and commercial plot records</li>
+      <li>Development updates and gallery</li>
+      <li>Plot / file verification</li>
+      <li>Member login and payment records</li>
+    </ul>
+  </div>
+</section>
+
+<section id="masterplan">
+  <div class="container">
+    <div class="section-label">Master Plan</div>
+
+    <h2>Project layout will appear here</h2>
+
+    <p>
+      The official master plan image or PDF can be added later.
+      For now, this area is reserved for the verified project map.
+    </p>
+
+    <div class="plan-box">
+      <div>
+        <h3>Official Master Plan Placeholder</h3>
+        <p>Upload the approved master plan later to replace this panel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plots">
+  <div class="container">
+    <div class="section-label">Plots & Blocks</div>
+
+    <h2>Structured for future inventory</h2>
+
+    <p>
+      Blocks, plot categories and sizes will be shown here once
+      the official inventory is available.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="number">01</div>
+        <h3>Residential Plots</h3>
+        <p>
+          Future listing area for residential plot sizes,
+          block names and availability.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">02</div>
+        <h3>Commercial Plots</h3>
+        <p>
+          Future listing area for commercial plots and verified business zones.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">03</div>
+        <h3>Block Information</h3>
+        <p>
+          Block-wise maps, streets, plot numbering and related project details.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="payments">
+  <div class="container">
+    <div class="section-label">Payment Plans</div>
+
+    <h2>Clear payment information, when officially available</h2>
+
+    <p>
+      No rates or installment plans are being assumed in this demo.
+      Once verified information is provided, the website can show
+      down payment, installments, due dates and printable schedules.
+    </p>
+
+    <table class="payment-table">
+      <tr>
+        <td>Down Payment</td>
+        <td>To be added</td>
+      </tr>
+      <tr>
+        <td>Installments</td>
+        <td>To be added</td>
+      </tr>
+      <tr>
+        <td>Possession / Other Charges</td>
+        <td>To be added</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="development">
+  <div class="container">
+    <div class="section-label">Development Updates</div>
+
+    <h2>Progress updates can be posted by date</h2>
+
+    <p>
+      Road work, utilities, public spaces and other development
+      photos can be added here with verified dates and captions.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Road & Infrastructure Progress</h3>
+        <p>Official progress information will be posted here.</p>
+        <strong>Future Update</strong>
+      </div>
+
+      <div class="card">
+        <h3>Utilities & Services</h3>
+        <p>Verified information about utilities can be posted here.</p>
+        <strong>Future Update</strong>
+      </div>
+
+      <div class="card">
+        <h3>Community Facilities</h3>
+        <p>Facilities and amenities will be listed only after confirmation.</p>
+        <strong>Future Update</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-label">Gallery</div>
+
+    <h2>Project images and videos</h2>
+
+    <div class="gallery">
+      <div class="gallery-item">Project Image 1</div>
+      <div class="gallery-item">Project Image 2</div>
+      <div class="gallery-item">Project Image 3</div>
+      <div class="gallery-item">Project Image 4</div>
+    </div>
+  </div>
+</section>
+
+<section id="verification">
+  <div class="container">
+    <div class="section-label">Verification</div>
+
+    <h2>Prepared for future online verification</h2>
+
+    <p>
+      This demo form is not connected to a database yet.
+      Later, members can enter a plot or file number to check authorised records.
+    </p>
+
+    <div class="form-box">
+      <label for="record">Plot / File Number</label>
+      <input id="record" type="text" placeholder="e.g. MEC-0001">
+
+      <button class="btn btn-primary" id="checkRecord">
+        Check Record
+      </button>
+
+      <div class="notice" id="recordNotice">
+        Online verification will be activated after official records
+        are connected to the website.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+
+    <h2>Muslim Educational City</h2>
+
+    <p>
+      Aza Khel Bala, Nowshera, Khyber Pakhtunkhwa, Pakistan
+    </p>
+
+    <p>
+      Office phone, WhatsApp, email and exact map pin can be added later.
+    </p>
+
+    <div class="form-box">
+      <input type="text" placeholder="Your name">
+      <input type="text" placeholder="Phone / WhatsApp">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Your message"></textarea>
+
+      <button class="btn btn-primary" id="sendInquiry">
+        Send Inquiry
+      </button>
+
+      <div class="notice" id="contactNotice">
+        The contact form is currently a demonstration.
+        Contact delivery can be connected later.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>Muslim Educational City</strong><br>
+    Aza Khel Bala, Nowshera, Khyber Pakhtunkhwa, Pakistan<br>
+    © Muslim Educational City. Demo website.
+  </div>
+</footer>
+
+<script>
+  document.getElementById("checkRecord").addEventListener("click", function () {
+    document.getElementById("recordNotice").style.display = "block";
+  });
+
+  document.getElementById("sendInquiry").addEventListener("click", function () {
+    document.getElementById("contactNotice").style.display = "block";
+  });
+</script>
+
+</body>
+</html>
