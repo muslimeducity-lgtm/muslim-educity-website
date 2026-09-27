@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fc;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+header .container {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+header a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+nav a {
+  color: #374151;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #0b6b4f;
+}
+
+section {
+  padding: 55px 0;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+  line-height: 1.08;
+  margin-bottom: 22px;
+  color: #12372a;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1.2;
+  margin: 25px 0 16px;
+  color: #12372a;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin: 20px 0 10px;
+  color: #174f3b;
+}
+
+p {
+  margin-bottom: 18px;
+}
+
+a {
+  color: #087f5b;
+}
+
+button,
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 20px;
+  background: #0b6b4f;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+  background: #084c39;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  margin: 7px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #ffffff;
+  font: inherit;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  margin: 20px 0;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+th {
+  background: #eef7f3;
+  color: #12372a;
+}
+
+footer {
+  background: #12372a;
+  color: #ffffff;
+  padding: 35px 0;
+  margin-top: 30px;
+}
+
+footer a {
+  color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 92%;
+  }
+
+  section {
+    padding: 38px 0;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
