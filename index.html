@@ -293,7 +293,32 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+    .menu-toggle {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .menu-toggle {
+        display: block;
+        background: transparent;
+        border: 0;
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+    }
+
+    nav.active {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+</style>
 </head>
 
 <body>
