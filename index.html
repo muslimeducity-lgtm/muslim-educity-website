@@ -329,7 +329,7 @@
       Muslim Educational City
       <small>Aza Khel Bala, Nowshera, Khyber Pakhtunkhwa</small>
     </div>
-
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -606,7 +606,9 @@
   document.getElementById("sendInquiry").addEventListener("click", function () {
     document.getElementById("contactNotice").style.display = "block";
   });
+  document.getElementById("menuToggle").addEventListener("click", function () {
+    document.querySelector("nav").classList.toggle("active");
+});
 </script>
-
 </body>
 </html>
